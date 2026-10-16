@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Herbie &amp; Princess — April 10, 2027</title>
+<meta name="description" content="You are invited to the wedding of Herbie & Princess — April 10, 2027.">
+<meta name="theme-color" content="#fbf8f1">
+<!-- Fonts: Cormorant Garamond (display) · Jost (body) · Pinyon Script (accent) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="locked">
+
+<!-- Leaf ornament, reused with <use href="#sprig"> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="sprig" viewBox="0 0 100 200" fill="rgba(184,146,63,.14)" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+<path fill="none" d="M50 200C48 130 52 70 50 8"/>
+<path d="M50 160C28 154 16 136 18 118C38 124 50 140 50 160Z"/><path d="M50 120C26 112 14 92 18 72C38 80 50 98 50 120Z"/><path d="M50 82C30 72 24 52 30 36C46 46 52 62 50 82Z"/>
+<path d="M50 140C72 132 84 114 82 96C62 102 50 118 50 140Z"/><path d="M50 100C74 90 86 70 80 52C60 60 50 78 50 100Z"/><path d="M50 62C68 52 74 34 68 18C54 28 50 44 50 62Z"/></symbol></svg>
+
+<!-- ============ 1. ENVELOPE INTRO ============ -->
+<div id="intro">
+  <div class="env-wrap" id="env" role="button" tabindex="0" aria-label="Open the invitation">
+    <p class="script env-top">You have a special invitation</p>
+    <div class="envelope">
+      <div class="layer env-back"></div>
+      <div class="card"><span class="script" data-names-plain>Herbie &amp; Princess</span><small data-date>April 10, 2027</small></div>
+      <div class="layer env-front"></div>
+      <div class="layer flap"></div>
+      <div class="seal"><i class="l">H&amp;P</i><i class="r">H&amp;P</i></div>
+    </div>
+    <p class="env-hint">Click to Open</p>
+  </div>
+  <div class="glow"></div>
+</div>
+
+<!-- Floating UI -->
+<button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+<nav class="nav" aria-label="Main">
+  <a href="#home" class="active">Home</a><a href="#story">Our Story</a><a href="#wedding">Wedding</a><a href="#rsvp">RSVP</a>
+</nav>
+<button class="music" id="music" aria-label="Toggle music"><span class="bars"><i></i><i></i><i></i><i></i></span><span id="musicTxt">Music OFF</span></button>
+<div class="toast" id="toast" role="status"></div>
+<canvas id="dust" aria-hidden="true"></canvas>
+
+<main id="main">
+
+<!-- ============ 2–3. HERO + PHOTO + COUNTDOWN ============ -->
+<section id="home">
+  <svg class="sprig sp-l" aria-hidden="true"><use href="#sprig"/></svg>
+  <svg class="sprig sp-r" aria-hidden="true"><use href="#sprig"/></svg>
+  <div class="rays"></div>
+  <div class="hero-in">
+    <div class="hero-txt">
+      <p class="script rv">Together with their families</p>
+      <h1 class="names gold-text rv" data-fx="blur" data-names>Herbie <span class="amp">&amp;</span> Princess</h1>
+      <p class="date rv" style="--d:.2s" data-date>April 10, 2027</p>
+      <div class="orn rv" style="--d:.3s"><i></i></div>
+      <p class="quote rv" style="--d:.4s">“Two hearts, one story, and a lifetime to share.”</p>
+    </div>
+    <div class="par" data-par=".07">
+      <div class="float"><div class="tilt" id="heroTilt">
+        <div class="frame rv" data-fx="scale" style="--d:.3s">
+          <div class="arch photo"></div>
+          <span class="spark" style="top:8%;left:-8%"></span><span class="spark" style="top:30%;right:-10%;animation-delay:1s"></span>
+          <span class="spark" style="bottom:12%;left:-12%;animation-delay:2s"></span><span class="spark" style="bottom:-3%;right:6%;animation-delay:.5s"></span>
+        </div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="count rv" style="margin-top:clamp(60px,9vw,100px)">
+    <p class="script">Counting down to forever</p>
+    <div class="cd" id="cd">
+      <div class="cell"><b>00</b><span>Months</span></div><div class="cell"><b>00</b><span>Days</span></div>
+      <div class="cell"><b>00</b><span>Hours</span></div><div class="cell"><b>00</b><span>Minutes</span></div>
+      <div class="cell"><b>00</b><span>Seconds</span></div>
+    </div>
+    <h2 id="cdDone" class="gold-text" hidden>Today is the day.</h2>
+  </div>
+</section>
+
+<!-- ============ 6. OUR STORY ============ -->
+<section id="story" class="story">
+  <div class="story-bg" data-par=".05"><div class="photo"></div></div>
+  <p class="script rv">How it began</p>
+  <h2 class="rv">Our Story</h2>
+  <div class="portrait rv" data-fx="scale"><div class="photo"></div></div>
+  <div class="tl" id="timeline"><div class="tl-line"><i id="tlFill"></i></div></div>
+</section>
+
+<!-- ============ 7–8. WEDDING DETAILS + LOCATION ============ -->
+<section id="wedding" class="details">
+  <svg class="sprig sp-l" aria-hidden="true"><use href="#sprig"/></svg>
+  <svg class="sprig sp-r" aria-hidden="true"><use href="#sprig"/></svg>
+  <p class="script rv">Save the date</p>
+  <h2 class="rv">The Celebration</h2>
+  <div class="medal rv" data-fx="scale"><div class="photo"></div></div>
+  <p class="bigdate gold-text rv" data-date>April 10, 2027</p>
+  <div class="cards rv">
+    <div class="c3d" tabindex="0"><small>Ceremony</small><b data-cfg="ceremonyTime">[Time]</b><p class="x">Please arrive a little early so we can begin on time.</p></div>
+    <div class="c3d" tabindex="0"><small>Reception</small><b data-cfg="receptionTime">[Time]</b><p class="x">Dinner, dancing, and a night to remember.</p></div>
+    <div class="c3d" tabindex="0"><small>Venue</small><b data-cfg="venueName">[Venue Name]</b><p class="x">Parking and directions will be shared soon.</p></div>
+    <div class="c3d" tabindex="0"><small>Address</small><b data-cfg="venueAddress">[Venue Address]</b><p class="x">Tap “View Location” below for directions.</p></div>
+  </div>
+
+  <div class="loc">
+    <p class="script rv">Where We Say I Do</p>
+    <div class="map rv" data-fx="blur">
+      <svg viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" fill="none" stroke="#b8923f" stroke-width=".6" opacity=".45" aria-hidden="true">
+        <path d="M-5 70C30 60 50 85 90 60S140 40 170 50"/><path d="M20 -5C35 30 25 60 50 105"/><path d="M110 -5C100 25 120 60 105 105"/>
+        <path d="M-5 30C40 35 70 15 100 30S150 20 170 25"/><circle cx="80" cy="50" r="30" stroke-dasharray="2 3"/>
+      </svg>
+      <span class="pin"></span>
+    </div>
+    <h3 class="venue rv" data-cfg="venueName">[VENUE NAME]</h3>
+    <p class="rv" data-cfg="venueAddress">[VENUE ADDRESS]</p>
+    <a class="btn rv" id="mapBtn" href="#">View Location</a>
+  </div>
+</section>
+
+<!-- ============ 9. RSVP ============ -->
+<section id="rsvp">
+  <svg class="sprig sp-l" aria-hidden="true"><use href="#sprig"/></svg>
+  <svg class="sprig sp-r" aria-hidden="true"><use href="#sprig"/></svg>
+  <p class="script rv">Kindly reply</p>
+  <h2 class="rv">Will You Celebrate With Us?</h2>
+  <div class="rsvp-box rv">
+    <input id="guestName" type="text" placeholder="Your name (optional)" autocomplete="name" aria-label="Your name">
+    <button class="btn solid" data-answer="yes">Yes, I'll be there</button>
+    <button class="btn" data-answer="no">Sorry, I can't make it</button>
+  </div>
+</section>
+
+<!-- ============ 15. FINAL ============ -->
+<section id="finale" class="final">
+  <div class="final-bg" data-par=".12"><div class="photo"></div></div>
+  <div class="final-in">
+    <h2 class="names gold-text rv" data-fx="blur" data-names>Herbie <span class="amp">&amp;</span> Princess</h2>
+    <p class="date rv" data-date>April 10, 2027</p>
+    <p class="script rv">We can't wait to celebrate with you.</p>
+    <div class="orn big rv"><i></i></div>
+  </div>
+</section>
+</main>
+
+<!-- RSVP popup -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mMsg">
+  <div class="m-box"><div class="orn"><i></i></div><h3 id="mMsg"></h3><button class="btn solid" id="mClose">Close</button></div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
